@@ -5,6 +5,10 @@
 #ifndef HASH_H
 #define HASH_H
 
+// blake2b 헤더 파일 포함
+#include "../include/blake2b.h";
 
+// 함수 선언
+char* hash(const char* input); // 해시 함수
 
 #endif //HASH_H
