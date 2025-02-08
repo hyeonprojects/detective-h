@@ -7,7 +7,7 @@
 
 #include "../include/hash.h"
 
-char* hash(const char* input) {
+EXPORT char* hash(const char* input) {
     // BLAKE2b-512는 64바이트 출력
     uint8_t hash[64] = {0};
 

@@ -9,6 +9,6 @@
 #include "../include/blake2b.h";
 
 // 함수 선언
-char* hash(const char* input); // 해시 함수
+EXPORT char* hash(const char* input); // 해시 함수
 
 #endif //HASH_H
