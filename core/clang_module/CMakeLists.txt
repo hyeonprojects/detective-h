@@ -4,23 +4,22 @@ project(clang_module C)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
-add_executable(clang_module src/hash.c)
+# LLVM 설정
+set(LLVM_DIR "C:/Program Files/LLVM/lib/cmake/llvm")
+find_package(LLVM REQUIRED CONFIG)
 
-target_link_libraries(clang_module
-    PRIVATE my_library
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+set(SOURCE_FILES
+    src/main.c
+    src/internal/internal.c
 )
 
-add_library(my_library SHARED
-        src/hash.c
-)
-
-# Windows에서는 .dll, Linux에서는 .so가 생성됨
+# 플랫폼별 설정
 if(WIN32)
-    set_target_properties(my_library PROPERTIES
-            RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-    )
+    set(LIBRARY_EXTENSION ".dll")
+elseif(APPLE)
+    set(LIBRARY_EXTENSION ".dylib")
 else()
-    set_target_properties(my_library PROPERTIES
-            LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
-    )
+    set(LIBRARY_EXTENSION ".so")
 endif()

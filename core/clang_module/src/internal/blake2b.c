@@ -1,5 +1,5 @@
 // blake2b.c
-#include "../include/blake2b.h"
+#include "../../include/blake2b.h"
 #include <string.h>
 
 // BLAKE2b 초기화 벡터
