@@ -1,140 +1,233 @@
 # Detective-H
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Language](https://img.shields.io/badge/language-C%20%7C%20Python-orange.svg)
+![Language](https://img.shields.io/badge/language-C%20%7C%20Python%20%7C%20JavaScript-orange.svg)
+![Status](https://img.shields.io/badge/status-Development-yellow.svg)
 
-> A robust virus tracking and analysis system using BLAKE2b hash algorithm for virus comparison and identification.
+> Comprehensive security analysis and vulnerability detection tool for developers
 
 ## 📋 Overview
 
-Detective-H is a powerful system designed to track and analyze virus files. By leveraging advanced hash algorithms like BLAKE2b, it provides reliable methods for virus file comparison and identification. The system combines C language efficiency with Python's ease of use and flexibility.
+Detective-H is an integrated security tool that helps developers proactively identify and resolve security issues during the coding process. It provides security checks across the entire development lifecycle, from code analysis to package vulnerability scanning and configuration file security verification.
 
-## 🚀 Features
+## 🚀 Core Features
 
-- **BLAKE2b Hash Algorithm** - Utilizes BLAKE2b for secure and fast virus file signature generation
-- **Virus Database Management** - Maintains a database of known virus samples with metadata
-- **Similarity Analysis** - Calculates similarity between files to detect virus variants
-- **Cross-Platform Support** - Works across multiple operating systems and environments
+### 🔍 Code Security Analysis
+- **Static Code Analysis** - Automatic detection of security vulnerabilities in source code
+- **LLM-based Analysis** - Advanced code pattern and logic vulnerability analysis using AI
+- **Real-time Analysis** - Real-time security issue detection and feedback during development
 
-## 🔧 Installation
+### 🦠 Malware Detection
+- **BLAKE2b Hash Analysis** - High-performance malicious file identification using hash algorithms
+- **Virus Signature Matching** - Comparative analysis with known malicious code patterns
+- **Variant Detection** - Malware variant identification through similarity analysis
 
-### Building the C Library
+### 📦 Dependency Security Scanning
+- **Package Vulnerability Scan** - Vulnerability checks for package managers like npm, pip, maven
+- **License Compatibility Verification** - Analysis of open source license conflicts and security risks
+- **Update Recommendations** - Upgrade guides to versions with security patches applied
 
-```bash
-# Navigate to the core build directory
-mkdir -p core/build && cd core/build
+### ⚙️ Configuration File Security Verification
+- **Environment Configuration Analysis** - Check for sensitive information exposure in .env, config files
+- **Cloud Configuration Verification** - Security checks for AWS, GCP, Azure cloud resource configurations
+- **DevOps Security** - Verification of security best practices compliance for Docker, Kubernetes configurations
 
-# Build using CMake
-cmake ../clang_module
-cmake --build . --config Release
-```
+### 📊 Reports and Dashboard
+- **Detailed Security Reports** - Detailed analysis and solutions for discovered vulnerabilities
+- **Risk Assessment** - Severity classification and prioritization by vulnerability
+- **Fix Guide** - Specific code modification examples and best practices
 
-### Installing the Python Package
+## 📊 Development Progress
 
-```bash
-# Navigate to the python directory
-cd python
+### Overall Project Progress
+![Progress](https://img.shields.io/badge/Overall_Progress-25%25-orange.svg)
 
-# Install the package
-pip install -e .
-```
+### Module Development Status
+
+#### 🔍 Code Security Analysis Module
+![Code Analysis](https://img.shields.io/badge/Progress-15%25-red.svg)
+- [x] Basic project structure design
+- [ ] Static analysis engine development `In Progress`
+- [ ] LLM API integration
+- [ ] Vulnerability pattern database construction
+- [ ] Real-time analysis system
+
+#### 🦠 Malware Detection Module
+![Malware Detection](https://img.shields.io/badge/Progress-60%25-yellow.svg)
+- [x] BLAKE2b hash algorithm implementation
+- [x] Basic C library structure
+- [x] Python wrapper development
+- [x] Basic CLI commands
+- [ ] Virus signature database
+- [ ] Similarity analysis algorithm optimization
+
+#### 📦 Dependency Security Scanning Module
+![Dependency Check](https://img.shields.io/badge/Progress-5%25-red.svg)
+- [x] Module design completed
+- [ ] Package manager-specific parser development
+- [ ] Vulnerability database integration
+- [ ] License compatibility verification logic
+- [ ] Update recommendation system
+
+#### ⚙️ Configuration File Security Verification Module
+![Config Security](https://img.shields.io/badge/Progress-10%25-red.svg)
+- [x] Requirements analysis completed
+- [ ] Environment configuration file parser
+- [ ] Sensitive information detection rules
+- [ ] Cloud configuration verification logic
+- [ ] DevOps security check functionality
+
+#### 🌐 Web Interface
+![Web Interface](https://img.shields.io/badge/Progress-0%25-lightgrey.svg)
+- [ ] UI/UX design
+- [ ] Frontend framework setup
+- [ ] API server development
+- [ ] Dashboard implementation
+- [ ] Report generation system
+
+#### 🔌 MCP (Model Context Protocol)
+![MCP](https://img.shields.io/badge/Progress-0%25-lightgrey.svg)
+- [ ] MCP specification analysis
+- [ ] Protocol implementation
+- [ ] AI tool integration testing
+- [ ] Documentation
+
+## 🛠️ Supported Platforms and Tools
+
+### 💻 Integrated Development Environment
+- **Web Interface** - Browser-based comprehensive security analysis dashboard
+- **CLI Tool** - Lightweight analysis tool available from command line
+- **MCP (Model Context Protocol)** - Protocol support for seamless integration with AI tools
+
+### 🔧 Language and Framework Support
+- **Programming Languages**: Python, JavaScript/TypeScript, Java, C/C++, Go, Rust
+- **Web Frameworks**: React, Vue.js, Angular, Django, Flask, Express.js
+- **Mobile**: React Native, Flutter
+- **DevOps**: Docker, Kubernetes, Terraform
 
 ## 📖 Usage
 
 ### Command Line Interface (CLI)
 
 ```bash
-# Analyze a file for virus matches
-virus-tracker analyze <file-path> [--threshold similarity-threshold] [--db database-path]
+# Complete project security analysis
+detective-h scan --path ./my-project --report detailed
 
-# Add a virus sample to the database
-virus-tracker add <file-path> [--name virus-name] [--type virus-type] [--description description]
+# Specific file vulnerability check
+detective-h analyze --file vulnerable.py --severity high
 
-# List all registered virus samples
-virus-tracker list
+# Dependency security check
+detective-h deps --check-vulnerabilities --suggest-updates
 
-# Calculate the Blake2b hash of a file
-virus-tracker hash <file-path> [--size hash-size]
+# Configuration file security verification
+detective-h config --check-secrets --validate-cloud-config
 
-# Compare two files
-virus-tracker compare <file1> <file2>
+# Malware scanning
+detective-h malware --scan-directory ./downloads --quarantine
 ```
 
-### Using in Python
+### Python API Usage
 
 ```python
-from virus_tracker.virus_analyzer import VirusAnalyzer
-from virus_tracker.virus_comparator import hex_hash, compare_virus_with_hamming
+from detective_h import SecurityAnalyzer, VulnerabilityScanner
 
-# Initialize the analyzer
-analyzer = VirusAnalyzer()
+# Initialize security analyzer
+analyzer = SecurityAnalyzer()
 
-# Add a virus sample
-analyzer.add_virus_sample('malware.exe', 'Malware.Win32.Example')
+# Code security analysis
+results = analyzer.scan_code('./src/')
+for issue in results.vulnerabilities:
+    print(f"[{issue.severity}] {issue.title}: {issue.description}")
+    print(f"Fix suggestion: {issue.fix_suggestion}")
 
-# Analyze a file
-results = analyzer.analyze_file('suspicious.exe')
-for virus_name, similarity in results:
-    print(f"- {virus_name}: {similarity:.2%} match")
-
-# Calculate file hash
-hash_val = hex_hash('file.exe')
-print(f"File hash: {hash_val}")
-
-# Compare files
-distance, similarity = compare_virus_with_hamming('file1.exe', 'file2.exe')
-print(f"Similarity: {similarity:.2%}")
+# Dependency vulnerability check
+scanner = VulnerabilityScanner()
+deps_report = scanner.check_dependencies('./package.json')
+print(f"Vulnerabilities found: {deps_report.total_vulnerabilities}")
 ```
 
-## 🗂️ Project Structure
+### Web Interface
 
-```
-detective-h/
-├── core/
-│   ├── clang_module/            # C code implementation
-│   │   ├── include/             # Header files
-│   │   │   ├── blake2b.h
-│   │   │   └── hash.h
-│   │   ├── src/                 # Source files
-│   │   │   ├── hash.c
-│   │   │   └── internal/
-│   │   │       └── blake2b.c
-│   │   └── CMakeLists.txt       # C module build script
-│   │
-│   └── build/                   # Compiled binaries (created during build)
-│
-├── python/
-│   ├── virus_tracker/           # Main Python package
-│   │   ├── __init__.py
-│   │   ├── __main__.py          # CLI entry point
-│   │   ├── blake2b_wrapper.py   # C library wrapper
-│   │   ├── virus_analyzer.py    # Virus analysis logic
-│   │   └── virus_comparator.py  # Virus comparison logic
-│   │
-│   └── setup.py                 # Python package setup script
-│
-└── data/                        # Data storage (automatically created)
-    └── virus_db/                # Virus sample database (automatically created)
+Access `http://localhost:8080` in your browser to perform project analysis, view reports, and manage settings through an intuitive GUI.
+
+## 🔧 Installation
+
+### Quick Start
+
+```bash
+# Install via pip
+pip install detective-h
+
+# Or build from source
+git clone https://github.com/hyeonprojects/detective-h.git
+cd detective-h
+pip install -e .
+
+# Run web server
+detective-h serve --port 8080
 ```
 
-## 🤝 Contributing
+### Development Environment Setup
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+```bash
+# Clone repository
+git clone https://github.com/hyeonprojects/detective-h.git
+cd detective-h
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+# Build core C module
+mkdir -p core/build && cd core/build
+cmake ../clang_module
+cmake --build . --config Release
 
-## 📜 License
+# Install Python package
+cd ../../python
+pip install -e .
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+# Setup web frontend
+cd ../web
+npm install
+npm run build
+```
 
-## 👨‍💻 Author
+## 🌟 Roadmap
 
-- **Hyeon** - [hyeonprojects](https://github.com/hyeonprojects)
+### 📅 Phase 1 (Current - August 2025)
+- [x] BLAKE2b-based malware detection engine ✅
+- [x] Basic CLI interface ✅
+- [ ] Basic static code analysis functionality `In Development`
+- [ ] Basic dependency vulnerability scanning
+
+### 📅 Phase 2 (September - November 2025)
+- [ ] LLM-integrated code analysis system
+- [ ] Web-based dashboard
+- [ ] Configuration file security verification
+- [ ] Detailed report generation functionality
+
+### 📅 Phase 3 (December 2025 - February 2026)
+- [ ] MCP (Model Context Protocol) implementation
+- [ ] IDE plugins (VS Code, IntelliJ)
+- [ ] CI/CD pipeline integration
+- [ ] Performance optimization
+
+### 📅 Phase 4 (March 2026 onwards)
+- [ ] Cloud SaaS version
+- [ ] Team collaboration features
+- [ ] Enterprise features
+- [ ] Mobile app
+
+## 📋 License
+
+This project is distributed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Developer
+
+**Hyeon** - [hyeonprojects](https://github.com/hyeonprojects)
 
 ---
 
-Made with ❤️ in Seoul, Korea
+> 🔒 **Security is not an option, it's a necessity**  
+> Write secure code with Detective-H.
+
+---
+
+*Made with ❤️ in Seoul, Korea*
