@@ -15,26 +15,37 @@ Detective-H is an integrated security tool that helps developers proactively ide
 ### 🔍 Code Security Analysis
 - **Static Code Analysis** - Automatic detection of security vulnerabilities in source code
 - **LLM-based Analysis** - Advanced code pattern and logic vulnerability analysis using AI
+- **Real-time Analysis** - Real-time security issue detection and feedback during development
 
-### 🦠 Malware Detection
-- **BLAKE2b Hash Analysis** - High-performance malicious file identification using hash algorithms
-- **Virus Signature Matching** - Comparative analysis with known malicious code patterns
-- **Variant Detection** - Malware variant identification through similarity analysis
+### 🛡️ Malicious Code Detection
+- **Supply Chain Integrity** - Deep analysis of third-party packages and dependencies
+- **Code Injection Detection** - Identify potentially harmful patterns in copied/pasted code
+- **Behavioral Analysis** - Detect suspicious code behaviors using BLAKE2b hash analysis
+- **Dependency Code Scanning** - Content verification of downloaded packages and libraries
 
 ### 📦 Dependency Security Scanning
 - **Package Vulnerability Scan** - Vulnerability checks for package managers like npm, pip, maven
-- **License Compatibility Verification** - Analysis of open source license conflicts and security risks (Optional)
+- **License Compatibility Verification** - Analysis of open source license conflicts and security risks
 - **Update Recommendations** - Upgrade guides to versions with security patches applied
+- **Supply Chain Attack Detection** - Identify compromised or malicious dependencies
 
-### ⚙️ Configuration File Security Verification (Currently undecided)
-- **Environment Configuration Analysis** - Check for sensitive information exposure in .env, config files
+### ⚙️ Infrastructure Security Analysis
+- **Secret Detection** - Find hardcoded passwords, API keys, tokens in code and config files
 - **Cloud Configuration Verification** - Security checks for AWS, GCP, Azure cloud resource configurations
-- **DevOps Security** - Verification of security best practices compliance for Docker, Kubernetes configurations
+- **Container Security** - Dockerfile best practices and image vulnerability scanning
+- **CI/CD Pipeline Security** - GitHub Actions, Jenkins pipeline security auditing
+
+### 🌐 Web Application Security
+- **OWASP Top 10 Compliance** - Comprehensive web application security standard verification
+- **API Security Analysis** - REST API vulnerability scan following OWASP API Security Top 10
+- **Authentication & Authorization Review** - JWT, OAuth, session management security checks
+- **Input Validation & Sanitization** - XSS, SQL injection, and other injection attack prevention
 
 ### 📊 Reports and Dashboard
-- **Detailed Security Reports** - Detailed analysis and solutions for discovered vulnerabilities
-- **Risk Assessment** - Severity classification and prioritization by vulnerability
-- **Fix Guide** - Specific code modification examples and best practices
+- **Detailed Security Reports** - Comprehensive analysis and solutions for discovered vulnerabilities
+- **Risk Assessment** - Severity classification and prioritization by vulnerability type
+- **Compliance Reports** - OWASP, PCI DSS, SOC 2 readiness assessments
+- **Fix Guide** - Specific code modification examples and security best practices
 
 ## 📊 Development Progress
 
@@ -93,17 +104,16 @@ Detective-H is an integrated security tool that helps developers proactively ide
 
 ## 🛠️ Supported Platforms and Tools
 
-### 💻 Integrated Development Environment
+### 💻 Planned Integration
 - **Web Interface** - Browser-based comprehensive security analysis dashboard
-- **CLI Tool** - Lightweight analysis tool available from command line
+- **CLI Tool** - Lightweight analysis tool for command line usage
 - **MCP (Model Context Protocol)** - Protocol support for seamless integration with AI tools
 
-### 🔧 Language and Framework Support
+### 🔧 Target Language and Framework Support
 - **Programming Languages**: Python, JavaScript/TypeScript, Java, C/C++, Go, Rust
 - **Web Frameworks**: React, Vue.js, Angular, Django, Flask, Express.js
 - **Mobile**: React Native, Flutter
 - **DevOps**: Docker, Kubernetes, Terraform
-
 
 ## 📋 License
 
