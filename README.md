@@ -15,7 +15,6 @@ Detective-H is an integrated security tool that helps developers proactively ide
 ### 🔍 Code Security Analysis
 - **Static Code Analysis** - Automatic detection of security vulnerabilities in source code
 - **LLM-based Analysis** - Advanced code pattern and logic vulnerability analysis using AI
-- **Real-time Analysis** - Real-time security issue detection and feedback during development
 
 ### 🦠 Malware Detection
 - **BLAKE2b Hash Analysis** - High-performance malicious file identification using hash algorithms
@@ -24,10 +23,10 @@ Detective-H is an integrated security tool that helps developers proactively ide
 
 ### 📦 Dependency Security Scanning
 - **Package Vulnerability Scan** - Vulnerability checks for package managers like npm, pip, maven
-- **License Compatibility Verification** - Analysis of open source license conflicts and security risks
+- **License Compatibility Verification** - Analysis of open source license conflicts and security risks (Optional)
 - **Update Recommendations** - Upgrade guides to versions with security patches applied
 
-### ⚙️ Configuration File Security Verification
+### ⚙️ Configuration File Security Verification (Currently undecided)
 - **Environment Configuration Analysis** - Check for sensitive information exposure in .env, config files
 - **Cloud Configuration Verification** - Security checks for AWS, GCP, Azure cloud resource configurations
 - **DevOps Security** - Verification of security best practices compliance for Docker, Kubernetes configurations
@@ -105,7 +104,7 @@ Detective-H is an integrated security tool that helps developers proactively ide
 - **Mobile**: React Native, Flutter
 - **DevOps**: Docker, Kubernetes, Terraform
 
-## 📖 Usage
+## 📖 Usage (Not decided)
 
 ### Command Line Interface (CLI)
 
@@ -188,32 +187,6 @@ cd ../web
 npm install
 npm run build
 ```
-
-## 🌟 Roadmap
-
-### 📅 Phase 1 (Current - August 2025)
-- [x] BLAKE2b-based malware detection engine ✅
-- [x] Basic CLI interface ✅
-- [ ] Basic static code analysis functionality `In Development`
-- [ ] Basic dependency vulnerability scanning
-
-### 📅 Phase 2 (September - November 2025)
-- [ ] LLM-integrated code analysis system
-- [ ] Web-based dashboard
-- [ ] Configuration file security verification
-- [ ] Detailed report generation functionality
-
-### 📅 Phase 3 (December 2025 - February 2026)
-- [ ] MCP (Model Context Protocol) implementation
-- [ ] IDE plugins (VS Code, IntelliJ)
-- [ ] CI/CD pipeline integration
-- [ ] Performance optimization
-
-### 📅 Phase 4 (March 2026 onwards)
-- [ ] Cloud SaaS version
-- [ ] Team collaboration features
-- [ ] Enterprise features
-- [ ] Mobile app
 
 ## 📋 License
 
