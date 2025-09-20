@@ -7,6 +7,13 @@
 
 #include "../include/hash.h"
 
+// 플랫폼별 EXPORT 매크로 정의
+#ifdef _WIN32
+    #define EXPORT __declspec(dllexport)
+#else
+    #define EXPORT __attribute__((visibility("default")))
+#endif
+
 EXPORT char* hash(const char* input) {
     // BLAKE2b-512는 64바이트 출력
     uint8_t hash[64] = {0};
@@ -39,7 +46,7 @@ EXPORT char* hash(const char* input) {
 
     // 해시값을 16진수 문자열로 변환
     for(size_t i = 0; i < sizeof(hash); i++) {
-        snprintf(result + (i * 2), "%02x", hash[i]);
+        snprintf(result + (i * 2), 3, "%02x", hash[i]);
     }
     result[128] = '\0';  // 널 종료 문자 추가
 

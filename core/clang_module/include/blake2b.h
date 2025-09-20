@@ -2,8 +2,8 @@
 // Created by axzsw on 2025-02-02.
 //
 
-#ifndef BALKE2B_H
-#define BALKE2B_H
+#ifndef BLAKE2B_H
+#define BLAKE2B_H
 
 #include <stddef.h>
 #include <stdint.h>
@@ -24,4 +24,4 @@ int blake2b_init(blake2b_state *S, size_t outlen);
 int blake2b_update(blake2b_state *S, const void *in, size_t inlen);
 int blake2b_final(blake2b_state *S, void *out, size_t outlen);
 
-#endif //BALKE2B_H
+#endif //BLAKE2B_H
