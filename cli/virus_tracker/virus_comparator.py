@@ -1,10 +1,10 @@
 """
 바이러스 파일 비교 모듈
-Blake2b 해시를 이용해 바이러스 파일의 유사도를 계산합니다.
+Blake3 해시를 이용해 바이러스 파일의 유사도를 계산합니다.
 """
 import os
 import binascii
-from .blake2b_wrapper import file_hash
+from .blake3_wrapper import file_hash
 
 def compare_virus_files(file_path1, file_path2, digest_size=64):
     """
@@ -13,7 +13,7 @@ def compare_virus_files(file_path1, file_path2, digest_size=64):
     Args:
         file_path1: 첫 번째 바이러스 파일 경로
         file_path2: 두 번째 바이러스 파일 경로
-        digest_size: 해시 결과의 바이트 크기 (최대 64)
+        digest_size: 해시 결과의 바이트 크기 (기본값: 64, 임의 크기 가능)
         
     Returns:
         (일치 여부, 유사도) 튜플
@@ -39,11 +39,11 @@ def compare_virus_files(file_path1, file_path2, digest_size=64):
 
 def hex_hash(file_path, digest_size=64):
     """
-    파일의 Blake2b 해시를 16진수 문자열로 반환합니다.
+    파일의 Blake3 해시를 16진수 문자열로 반환합니다.
     
     Args:
         file_path: 해시할 파일 경로
-        digest_size: 해시 결과의 바이트 크기 (최대 64)
+        digest_size: 해시 결과의 바이트 크기 (기본값: 64, 임의 크기 가능)
         
     Returns:
         16진수 문자열로 표현된 해시 값
@@ -87,7 +87,7 @@ def compare_virus_with_hamming(file_path1, file_path2, digest_size=64):
     Args:
         file_path1: 첫 번째 바이러스 파일 경로
         file_path2: 두 번째 바이러스 파일 경로
-        digest_size: 해시 결과의 바이트 크기 (최대 64)
+        digest_size: 해시 결과의 바이트 크기 (기본값: 64, 임의 크기 가능)
         
     Returns:
         (해밍 거리, 정규화된 유사도) 튜플

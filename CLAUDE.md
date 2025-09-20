@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Detective-H is a comprehensive security analysis and vulnerability detection tool designed for developers. It provides malware detection, code security analysis, dependency scanning, and infrastructure security checks. The project is organized into multiple modules:
 
 - **CLI Module** (`cli/`): Python-based command-line interface for virus detection and analysis
-- **Core Module** (`core/`): C/C++ implementation of cryptographic functions (Blake2b hashing)
+- **Core Module** (`core/`): C/C++ implementation of cryptographic functions (Blake3 hashing)
 - **Server Module** (`server/`): Web interface and API backend (under development)
 
 ## Development Commands
@@ -27,7 +27,7 @@ python -m virus_tracker --help
 virus-tracker analyze <file> --threshold 0.85    # Analyze file for viruses
 virus-tracker add <file> --name <virus_name>     # Add virus sample to database
 virus-tracker list                                # List all virus samples
-virus-tracker hash <file> --size 64              # Calculate Blake2b hash
+virus-tracker hash <file> --size 32              # Calculate Blake3 hash
 virus-tracker compare <file1> <file2>            # Compare two files using Hamming distance
 ```
 
@@ -36,13 +36,13 @@ virus-tracker compare <file1> <file2>            # Compare two files using Hammi
 # Navigate to core directory
 cd core/clang_module
 
-# Build the Blake2b library
+# Build the Blake3 library
 mkdir build && cd build
 cmake ..
 cmake --build .
 
-# This generates blake2b.dll (Windows) or libblake2b.so (Linux/macOS)
-# The Python wrapper expects the library at: core/build/blake2b.dll
+# This generates blake3.dll (Windows) or libblake3.so (Linux/macOS)
+# The Python wrapper expects the library at: core/build/blake3.dll
 ```
 
 ### Testing
@@ -57,11 +57,11 @@ detective-h/
 ├── cli/virus_tracker/          # Python malware detection engine
 │   ├── __main__.py            # CLI entry point and command parsing
 │   ├── virus_analyzer.py      # Core analysis engine with database management
-│   ├── virus_comparator.py    # File comparison using Blake2b and Hamming distance
-│   └── blake2b_wrapper.py     # Python ctypes wrapper for C Blake2b library
+│   ├── virus_comparator.py    # File comparison using Blake3 and Hamming distance
+│   └── blake3_wrapper.py      # Python ctypes wrapper for C Blake3 library
 ├── core/clang_module/         # C implementation of cryptographic functions
-│   ├── src/internal/blake2b.c # Blake2b hash algorithm implementation
-│   └── include/blake2b.h      # Blake2b header definitions
+│   ├── src/internal/blake3.c  # Blake3 hash algorithm implementation
+│   └── include/blake3.h       # Blake3 header definitions
 └── server/                    # Web interface (future development)
 ```
 
@@ -74,16 +74,16 @@ detective-h/
 - Database location: `data/virus_db/` (auto-created)
 
 **File Comparison System** (`virus_comparator.py`):
-- Uses Blake2b cryptographic hashing for file fingerprinting
+- Uses Blake3 cryptographic hashing for file fingerprinting
 - Implements Hamming distance calculation for similarity analysis
 - Provides both byte-level and bit-level comparison methods
 - Default similarity threshold: 85% for virus detection
 
-**Blake2b Integration**:
-- C library provides high-performance cryptographic hashing
+**Blake3 Integration**:
+- C library provides high-performance cryptographic hashing with parallel processing support
 - Python wrapper uses ctypes for seamless integration
-- Supports configurable digest sizes (1-64 bytes)
-- Optimized for large file processing with chunked reading
+- Supports configurable digest sizes (any size, default: 32 bytes)
+- Optimized for large file processing with chunked reading and better performance than Blake2b
 
 ### Key Design Patterns
 

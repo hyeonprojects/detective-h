@@ -31,10 +31,10 @@ def main():
     list_parser.add_argument('--db', help='바이러스 데이터베이스 경로')
     
     # hash 명령
-    hash_parser = subparsers.add_parser('hash', help='파일의 Blake2b 해시 계산')
+    hash_parser = subparsers.add_parser('hash', help='파일의 Blake3 해시 계산')
     hash_parser.add_argument('file', help='해시를 계산할 파일 경로')
-    hash_parser.add_argument('--size', type=int, default=64, 
-                            help='해시 크기 (바이트 단위, 기본값: 64)')
+    hash_parser.add_argument('--size', type=int, default=32, 
+                            help='해시 크기 (바이트 단위, 기본값: 32)')
     
     # compare 명령
     compare_parser = subparsers.add_parser('compare', help='두 파일 비교')
@@ -89,7 +89,7 @@ def main():
         
         elif args.command == 'hash':
             hash_val = hex_hash(args.file, args.size)
-            print(f"파일 '{args.file}'의 Blake2b 해시 (크기: {args.size} 바이트):")
+            print(f"파일 '{args.file}'의 Blake3 해시 (크기: {args.size} 바이트):")
             print(hash_val)
         
         elif args.command == 'compare':
