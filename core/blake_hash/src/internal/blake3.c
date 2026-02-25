@@ -126,9 +126,18 @@ static void blake3_compress_xof(const uint32_t cv[8],
         round_fn(state, block_words, round);
     }
     
-    // 출력 생성
-    for (size_t i = 0; i < 16; i++) {
-        uint32_t word = state[i] ^ state[i % 8];
+    // 출력 생성 (BLAKE3 스펙)
+    // 전반부 8워드: state[i] ^ state[i+8]
+    // 후반부 8워드: state[i+8] ^ cv[i]
+    for (size_t i = 0; i < 8; i++) {
+        uint32_t word = state[i] ^ state[i + 8];
+        out[4 * i] = (uint8_t)word;
+        out[4 * i + 1] = (uint8_t)(word >> 8);
+        out[4 * i + 2] = (uint8_t)(word >> 16);
+        out[4 * i + 3] = (uint8_t)(word >> 24);
+    }
+    for (size_t i = 8; i < 16; i++) {
+        uint32_t word = state[i] ^ cv[i - 8];
         out[4 * i] = (uint8_t)word;
         out[4 * i + 1] = (uint8_t)(word >> 8);
         out[4 * i + 2] = (uint8_t)(word >> 16);
